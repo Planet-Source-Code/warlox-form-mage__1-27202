@@ -1,0 +1,110 @@
+VERSION 5.00
+Begin VB.PropertyPage Properties 
+   Caption         =   "Properties"
+   ClientHeight    =   2205
+   ClientLeft      =   0
+   ClientTop       =   0
+   ClientWidth     =   6165
+   PaletteMode     =   0  'Halftone
+   ScaleHeight     =   2205
+   ScaleWidth      =   6165
+   Begin VB.ComboBox Combo4 
+      Height          =   315
+      ItemData        =   "Properties.pgx":0000
+      Left            =   4440
+      List            =   "Properties.pgx":0010
+      Style           =   2  'Dropdown List
+      TabIndex        =   7
+      Top             =   1680
+      Width           =   1575
+   End
+   Begin VB.ComboBox Combo3 
+      Height          =   315
+      ItemData        =   "Properties.pgx":004A
+      Left            =   4440
+      List            =   "Properties.pgx":0054
+      Style           =   2  'Dropdown List
+      TabIndex        =   6
+      Top             =   1200
+      Width           =   1575
+   End
+   Begin VB.ComboBox Combo2 
+      Height          =   315
+      ItemData        =   "Properties.pgx":0086
+      Left            =   4440
+      List            =   "Properties.pgx":0090
+      Style           =   2  'Dropdown List
+      TabIndex        =   5
+      Top             =   720
+      Width           =   1575
+   End
+   Begin VB.ComboBox Combo1 
+      Height          =   315
+      ItemData        =   "Properties.pgx":00B3
+      Left            =   4440
+      List            =   "Properties.pgx":00BD
+      Style           =   2  'Dropdown List
+      TabIndex        =   4
+      Top             =   240
+      Width           =   1575
+   End
+   Begin VB.Label lblCaps 
+      BackStyle       =   0  'Transparent
+      Caption         =   "Form shape:"
+      Height          =   255
+      Index           =   3
+      Left            =   120
+      TabIndex        =   3
+      Top             =   1800
+      Width           =   1815
+   End
+   Begin VB.Label lblCaps 
+      BackStyle       =   0  'Transparent
+      Caption         =   "Resize controls with form:"
+      Height          =   255
+      Index           =   2
+      Left            =   120
+      TabIndex        =   2
+      Top             =   1320
+      Width           =   1815
+   End
+   Begin VB.Label lblCaps 
+      BackStyle       =   0  'Transparent
+      Caption         =   "Disable form 'X' button:"
+      Height          =   255
+      Index           =   1
+      Left            =   120
+      TabIndex        =   1
+      Top             =   720
+      Width           =   1815
+   End
+   Begin VB.Label lblCaps 
+      BackStyle       =   0  'Transparent
+      Caption         =   "Keep Form On Top:"
+      Height          =   255
+      Index           =   0
+      Left            =   120
+      TabIndex        =   0
+      Top             =   240
+      Width           =   1815
+   End
+End
+Attribute VB_Name = "Properties"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = True
+Attribute VB_PredeclaredId = False
+Attribute VB_Exposed = True
+Private Sub PropertyPage_ApplyChanges()
+    AlwaysOnTop = Combo1.ListIndex
+    DisabledX = Combo2.ListIndex
+    ResizeControls = Combo3.ListIndex
+    FormShape = Combo4.ListIndex
+End Sub
+
+Private Sub PropertyPage_Initialize()
+    Combo1.ListIndex = AlwaysOnTop
+    Combo2.ListIndex = DisabledX
+    Combo3.ListIndex = ResizeControls
+    Combo4.ListIndex = FormShape
+End Sub
+
